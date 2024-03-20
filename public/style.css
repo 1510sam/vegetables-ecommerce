@@ -1,0 +1,114 @@
+.navbar
+{
+    background-color: #1f262d;
+    height: 100%;
+}
+
+.logo_image
+{
+    width: 20%;
+    border-radius: 50%;
+}
+.admin_menu
+{
+    margin-bottom: 140%;
+    color: white;
+    margin-top: 15%;
+    
+}
+.admin_menu ul {
+    list-style: none;
+    font-size: 1.2rem;
+}
+.admin_menu ul li {
+    margin-top: 10%;
+}
+.admin_menu ul li a:hover
+{
+    color: #fefefe;
+}
+.admin_menu ul li i 
+{
+    font-size: 1.2rem;
+    color: #7f8387;
+}
+.admin_menu ul li a 
+{
+    text-decoration: none;
+    color: #7f8387;
+    font-weight: 600;
+    padding: 0 10px;
+}
+.admin_action i
+{
+    color: #fefefe;
+}
+.admin_action 
+{
+   font-size: 1.3rem;
+   padding: 5px;
+   margin-left: 10%;
+}
+.admin_action a
+{
+  text-decoration: none;
+  color: #fefefe;
+}
+.header
+{
+    background-color: #141619;
+    width: 100%;
+    height: 10%;
+    left: 17%;
+    
+}
+.input_header
+{
+    padding: 25px;
+}
+.header input{
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 40%;
+    background-color: #1f262d;
+    outline: none;
+    border: 1px solid #7f8387;
+    color: white ;
+}
+.input_header a
+{
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+.header-icon
+{ 
+    padding-left: 10%;
+}
+.header-icon i
+{
+   color: #fefefe;
+   font-size: 2rem;
+   transform: translate(60%,75%);
+   padding: 0 15px;
+   
+}
+.admin_content
+{
+   left: 22%;
+   margin-top: 7%;
+   width: 95%;
+}
+.admin_box
+{
+    background-color: #141619;
+    height: 200px;
+    border: 2px solid #fefefe;
+    
+}
+.admin_box i
+{
+    color: #fefefe;
+    transform: translate(260%,70%);
+    align-items: center;
+    font-size: 2rem;
+}

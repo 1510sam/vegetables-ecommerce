@@ -1,0 +1,61 @@
+<%- include('layout/header')%>
+
+    <div class="row admin_content position-absolute d-flex">
+        <h3 class="text-center">All Category</h3>
+
+        <% if(message) { %>
+            <div class="alert alert-dismissible fade show alert-<%=message.type%>" role="alert">
+                <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong>
+                    <%= message.message%>
+                </strong>
+            </div>
+
+            <%}%>
+
+                <div class="row">
+                    <% if(category !='' ) { %>
+                        <table class="table table-striped text-center">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Desc</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% category.forEach((row, index)=>{ %>
+                                    <tr class="align-middle">
+                                        <th scope="row">
+                                            <%= index + 1 %>
+                                        </th>
+                                        <td>
+                                            <%= row.name %>
+                                        </td>
+                                        <td class="col-6">
+                                            <%= row.desc %>
+                                        </td>
+                                        <td><img src="<%= row.image %>" class="img-thumbnail" width="50px" alt /></td>
+                                        <td>
+                                            <a href="/update/<%= row._id %>" class="text-success">
+                                                <i class="fas fa-edit fa-lg mx-1"></i>
+                                            </a>
+                                            <a href="/delete/<%= row._id%>" class="text-danger">
+                                                <i class="fas fa-trash fa-lg mx-1"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                        <%} else { %>
+                            <h1 class>No Category found in the database</h1>
+                            <% } %>
+                </div>
+
+    </div>
+
+    <%- include('layout/footer')%>

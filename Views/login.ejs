@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .admin-image {
+            width: 100%;
+            height: 100vh;
+            background-image: url(https://domf5oio6qrcr.cloudfront.net/medialibrary/11499/3b360279-8b43-40f3-9b11-604749128187.jpg);
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+
+        }
+
+        .admin-header {
+            height: 100%;
+        }
+
+        .login-box {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            margin-top: 14%;
+            padding: 10px;
+        }
+
+        .login-input {
+            border: none;
+            outline: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid admin-header">
+        <div class="row">
+            <div class="col-md-12 admin-image">
+                <div class="row">
+                    <div class="col-md-4"> </div>
+                    <div class="col-md-4 login-box">
+                        <h4 class="text-center text-light">LOGIN WEBSITE FOR
+                            ADMIN</h4>
+                        <%=message%>
+                            <form action="/login" method="post">
+                                <div class="mb-3 p-2">
+                                    <label for class="form-label text-light">Email
+                                        address</label>
+                                    <input type="email" class="form-control login-input" id aria-describedby="emailHelp"
+                                        name="email">
+                                </div>
+                                <div class="mb-3 p-2 ">
+                                    <label for class="form-label text-light">Password</label>
+                                    <input type="password" class="form-control login-input" id name="password">
+                                </div>
+                                <div class="p-2"> <button type="submit" class="btn btn-success"
+                                        style="width:100%">Submit</button></div>
+
+                                <p class="text-center text-light">You don't have
+                                    account ? <a href="/register">Register
+                                        Now</a></p>
+                            </form>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</body>
+
+</html>

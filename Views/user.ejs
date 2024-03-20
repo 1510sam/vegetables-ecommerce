@@ -1,0 +1,42 @@
+<%- include('layout/header')%>
+<div class="row admin_content position-absolute d-flex">
+    <h3>User</h3>
+    <div class="row ">
+        <% if(data) { %>
+        <table class="table table-striped ">
+            <thead class="table table-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach((row,index)=>{ %>
+                <tr>
+                    <th scope="row"><%= index %></th>
+                    <td><%= row.name %></td>
+                    <td><%= row.email %></td>
+                    <td><%= row.phoneNumber %></td>
+                    <td><%= row.role %></td>
+                    <td> <a href="/update/<%= row._id %>" class="text-success">
+                            <i class="fas fa-edit fa-lg mx-1"></i>
+                        </a>
+                        <a href="/delete/<%= row._id%>" class="text-danger">
+                            <i class="fas fa-trash fa-lg mx-1"></i>
+                        </a></td>
+                </tr>
+
+                <% }) %>
+            </tbody>
+        </table>
+        <% } else { %>
+        <h1>NO DATA</h1>
+        <% } %>
+    </div>
+
+</div>
+<%- include('layout/footer')%>

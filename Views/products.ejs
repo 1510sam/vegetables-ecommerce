@@ -1,0 +1,57 @@
+<%- include('layout/header')%>
+
+<div class="row admin_content position-absolute d-flex">
+  <h3>All Product</h3>
+  <div class="row">
+    <table class="table table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col-2">Desc</th>
+          <th scope="col">Price</th>
+          <th scope="col">Image</th>
+          <th scope="col">Status</th>
+          <th scope="col">action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(product != '') { %>
+
+        <% product.forEach((row,index)=> { %>
+        <tr class="text-center">
+          <th scope="row"><%= index + 1 %></th>
+          <td><%= row.name %></td>
+          <td class="col-5"><%= row.desc%></td>
+          <td><%= row.price%> &#36;</td>
+          <td><img src="<%= row.image %>" alt
+              width="50px" /></td>
+          <td>
+            <% if(row.status === "active") { %>
+            <p class="bg-success rounded-pill text-light text-center "><%=
+              row.status%></p>
+
+            <% } else { %>
+            <p class="bg-danger rounded-pill color-light"><%= row.status%></p>
+            <% } %>
+
+          </td>
+          <td> <a href class="text-success">
+              <i class="fas fa-edit fa-lg mx-1"></i>
+            </a>
+            <a href="product/delete/<%= row._id %>" class="text-danger">
+              <i class="fas fa-trash fa-lg mx-1"></i>
+            </a></td>
+        </tr>
+        <% }) %>
+
+        <% }else { %>
+        <h1>Not Product In Database</h1>
+        <% }%>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%- include('layout/footer') %>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="<%=css%>">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/3fabc68040.js"
+            crossorigin="anonymous"></script>
+        <link
+            href="https://cdn.datatables.net/v/bs5/dt-1.13.8/datatables.min.css"
+            rel="stylesheet">
+        <style>
+        .navbar
+{
+    background-color: #1f262d;
+    height: 100%;
+}
+
+.logo_image
+{
+    width: 20%;
+    border-radius: 50%;
+}
+.admin_menu
+{
+    margin-bottom: 140%;
+    color: white;
+    margin-top: 15%;
+    
+}
+.admin_menu ul {
+    list-style: none;
+    font-size: 1.2rem;
+}
+.admin_menu ul li {
+    margin-top: 10%;
+}
+.admin_menu ul li a:hover
+{
+    color: #fefefe;
+}
+.admin_menu ul li i 
+{
+    font-size: 1.2rem;
+    color: #7f8387;
+}
+.admin_menu ul li a 
+{
+    text-decoration: none;
+    color: #7f8387;
+    font-weight: 600;
+    padding: 0 10px;
+}
+.admin_action i
+{
+    color: #fefefe;
+}
+.admin_action 
+{
+   font-size: 1.3rem;
+   padding: 5px;
+   margin-left: 10%;
+}
+.admin_action a
+{
+  text-decoration: none;
+  color: #fefefe;
+}
+.header
+{
+    background-color: #141619;
+    width: 100%;
+    height: 10%;
+    left: 17%;
+    
+}
+.input_header
+{
+    padding: 25px;
+}
+.header input{
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 40%;
+    background-color: #1f262d;
+    outline: none;
+    border: 1px solid #7f8387;
+    color: white ;
+}
+.input_header a
+{
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+.header-icon
+{ 
+    padding-left: 10%;
+}
+.header-icon i
+{
+   color: #fefefe;
+   font-size: 2rem;
+   transform: translate(60%,75%);
+   padding: 0 15px;
+   
+}
+.admin_content
+{
+   left: 22%;
+   margin-top: 7%;
+   width: 95%;
+}
+.admin_box
+{
+    background-color: #141619;
+    padding: 5%;
+    border: 2px solid #fefefe;
+}
+.admin_box i
+{
+    color: #fefefe;
+    transform: translate(260%,70%);
+    align-items: center;
+    font-size: 2rem;
+}
+     </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2 navbar position-fixed position-relative">
+                    <div class="position-absolute">
+                        <div class="logo">
+                            <img class="logo_image" src="<%= image %>" alt>
+                            <span class="text-light fs-4 p-2">Admin</span>
+                        </div>
+                        <div class="admin_menu ">
+                            <ul>
+                                <li><i class="fa-solid fa-table-columns"></i><a
+                                        href="/">Dashbroad</a></li>
+                                <li><i class="fa-solid fa-carrot"></i><a
+                                        href>Product</a></li>
+                                <li><i class="fa-solid fa-plus"></i><a href>Add
+                                        Product</a></li>
+                                <li><i class="fa-solid fa-seedling"></i><a
+                                        href="/category">Category</a></li>
+                                <li><i class="fa-solid fa-leaf"></i><a
+                                        href="/add">Add
+                                        Category</a></li>
+                            </ul>
+                        </div>
+                        <div class="admin_action">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <a href>Logout</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-10 position-relative">
+                    <div class="row header position-fixed position-absolute">
+                        <div class=" col-md-7">
+                            <div class="input_header">
+                                <input type="text" name id
+                                    placeholder="Search...">
+                                <a href class="btn btn-primary"><i
+                                        class="fa-solid fa-magnifying-glass"></i></a>
+                            </div>
+
+                        </div>
+                        <div class="col-md-5 header-icon">
+                            <a href>
+                                <i class="fa-solid fa-bell"></i>
+                            </a>
+                            <a href>
+                                <i class="fa-regular fa-message"></i>
+                            </a>
+                            <a href>
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="row admin_content position-absolute d-flex">
+                        <h3 class="text-center">Edit Category (<%=
+                            category.name%>)</h3>
+                        <div class="row ">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <form action="/update/<%= category._id%>"
+                                    method="post"
+                                    enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <label for class="form-label">Name
+                                            Category</label>
+                                        <input type="text" class="form-control"
+                                            id aria-describedby
+                                            value="<%= category.name%>"
+                                            name="name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword1"
+                                            class="form-label">Decription</label>
+                                        <input type="text" class="form-control"
+                                            id value="<%= category.desc%>"
+                                            name="desc">
+                                    </div>
+
+                                    <input type="submit" name="submit"
+                                        value="Update category "
+                                        class="btn btn-primary btn-lg col-md-12">
+                                </form>
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+
+                    </div>
+
+                    <%- include('layout/footer')%>
